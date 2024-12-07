@@ -20,19 +20,19 @@ driver.find_element(By.XPATH,'//*[@class="a-link-nav-icon"]')
 # Email field
 driver.find_element(By.XPATH,'//input[@type="email"]')
 # Continue button
-driver.find_element(By.XPATH,'//input[@class="a-button-input"]')
+driver.find_element(By.ID, 'continue')
 # Conditions of use link
-driver.find_element(By.XPATH,'//a[@href="/gp/help/customer/display.html/ref=ap_signin_notification_condition_of_use?ie=UTF8&nodeId=508088"]')
+driver.find_element(By.ID,'Conditions of Use')
 # Privacy Notice link
-driver.find_element(By.XPATH,'//a[contains(@href,"signin_notification_privacy_notice")]')
+driver.find_element(By.ID,'Privacy Notice')
 # Need help link
 driver.find_element(By.XPATH,'//*[@class="a-expander-prompt"]')
 # Forgot your password link
-driver.find_element(By.XPATH,'//a[@id="auth-fpp-link-bottom"]')
+driver.find_element(By.ID,'Forgot your password?')
 # Other issues with Sign-In link
-driver.find_element(By.XPATH, '//a[@id="ap-other-signin-issues-link"]')
+driver.find_element(By.ID,'Other issues with Sign-In')
 # Create your Amazon account button
-driver.find_element(By.XPATH,'//a[@id="createAccountSubmit"]')
+driver.find_element(By.ID,'createAccountSubmit')
 
 driver.quit()
 
