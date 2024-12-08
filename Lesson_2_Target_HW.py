@@ -18,7 +18,7 @@ driver.get("https://www.target.com/")
 
 try:
 
-  WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//use[@href="/icons/Account.svg#Account"]')))
+  WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//use[@href="/icons/Account.svg#Account"]')))git
   driver.find_element(By.XPATH,"//a[text()='Sign in']").click()
 
 except:
@@ -26,6 +26,7 @@ except:
 
 if "Account" in driver.title:
   print("Successfully navigated to Sign In page")
+
 else:
   print("Verification failed: Sign In page title not found")
 
