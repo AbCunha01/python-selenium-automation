@@ -16,7 +16,7 @@ driver.implicitly_wait(6)
 driver.get("https://www.target.com/")
 
 
-driver.find_element((By.XPATH, '//*[@data-test="@web/AccountLink"]')).click()
+driver.find_element(By.XPATH, '//*[@data-test="@web/AccountLink"]').click()
 driver.find_element(By.XPATH, '//*[@data-test="accountNav-signIn"]').click()
 
 
