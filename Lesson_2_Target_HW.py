@@ -2,29 +2,27 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from time import sleep  # Optional, use WebDriverWait instead for a cleaner approach
+from time import sleep
 
+# get the path to the ChromeDriver executable
 driver_path = ChromeDriverManager().install()
 
+# create a new Chrome browser instance
 service = Service(driver_path)
 driver = webdriver.Chrome(service=service)
 driver.maximize_window()
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument("--incognito")
+driver.implicitly_wait(6)
 
 driver.get("https://www.target.com/")
 
 
-WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//use[@href="/icons/Account.svg#Account"]')))git
-driver.find_element(By.XPATH,"//a[text()='Sign in']").click()
+driver.find_element((By.XPATH, '//*[@data-test="@web/AccountLink"]')).click()
+driver.find_element(By.XPATH, '//*[@data-test="accountNav-signIn"]').click()
 
 
-if "Account" in driver.title:
-  print("Successfully navigated to Sign In page")
+expected = "Sign into your Target account"
+actual = driver.find_element(By.ID,"Sign into your Target account")
+assert expected == actual, f'Expected {expected} did not match actual {actual}'
 
-else:
-  print("Verification failed: Sign In page title not found")
 
-driver.quit()
+driver.find_element(By.ID, 'login')
