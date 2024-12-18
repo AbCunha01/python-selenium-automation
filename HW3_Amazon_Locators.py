@@ -13,12 +13,12 @@ driver = webdriver.Chrome(service=service)
 driver.maximize_window()
 
 # open the url
-driver.get('https://www.amazon.com/ap/register')
+driver.get('https://www.amazon.com/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2Fs%3Fk%3Damazon%2Busa%2Bshop%26hvadid%3D685750085434%26hvdev%3Dc%26hvlocphy%3D9010687%26hvnetw%3Dg%26hvqmt%3Db%26hvrand%3D4653006753302775073%26hvtargid%3Dkwd-300129314550%26hydadcr%3D7694_13589738%26tag%3Dgooghydr-20%26ref%3Dnav_ya_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0')
 
 # Amazon logo
-driver.find_element(By.CSS_SELECTOR('[aria-label*="Amazon"]'))
+driver.find_element(By.CSS_SELECTOR("a-icon a-icon-logo"))
 # 'Create Account' Logo:
-driver.find_element(By.CSS_SELECTOR("a-spacing-small"))
+driver.find_element(By.CSS_SELECTOR("Create account"))
 #Your Name:
 driver.find_element(By.CSS_SELECTOR("ap_customer_name"))
 #Mobile number or email:
