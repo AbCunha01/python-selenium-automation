@@ -23,28 +23,27 @@ def open_main(context):
     context.driver.get('https://www.target.com/')
 
 
-    @when("I click the cart icon")
-    def click_cart_icon(context):
-        cart_icon = context.driver.find_element(By.CSS_SELECTOR('Cart.svg#Cart')).click()
-
-
-    @then("Verify the 'Your cart is empty' message")
-    def verify_empty_cart_message(context):
-        empty_message = context.driver.find_element(By.CSS_SELECTOR("Your cart is empty")).text
-        assert empty_message == "Your cart is empty"
-
-
-# Update these steps
+@when("I click the cart icon")
 def click_cart_icon(context):
-  cart_icon = context.driver.find_element(By.CSS_SELECTOR('Cart.svg#Cart')).click()
+    cart_icon = context.driver.find_element(By.CSS_SELECTOR('Cart.svg#Cart'))
+    cart_icon.click()
 
-@When("I click 'Sign In' from the navigation menu")
+
+@then("Verify the 'Your cart is empty' message")
+def verify_empty_cart_message(context):
+    empty_message = WebDriverWait(context.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "Your cart is empty"))).text
+    assert empty_message == "Your cart is empty"
+
+
+@when("I click 'Sign In' from the navigation menu")
 def click_sign_in_nav(context):
-    sign_in_link = WebDriverWait(context.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "[title='Sign in']"))
+    sign_in_link = WebDriverWait(context.driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "[title='Sign in']"))
     )
     sign_in_link.click()
 
-@Then("Verify that the 'Sign In' form opened")
+@then("Verify that the 'Sign In' form opened")
 def verify_sign_in_form(context):
   sign_in_form = context.driver.find_element(By.ID("Sign in"))
   assert sign_in_form.is_displayed()
+
+driver.quit()

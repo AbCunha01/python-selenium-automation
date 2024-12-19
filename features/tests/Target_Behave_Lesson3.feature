@@ -10,5 +10,5 @@ Scenario: Empty Cart Message
 
   Scenario: Navigate to Sign In
   Given I am on the Target homepage
-  When  I click 'Sign In' from the navigation menu
+  When I click 'Sign In' from the navigation menu
   Then Verify that the 'Sign In' form opened
